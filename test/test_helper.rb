@@ -37,7 +37,11 @@ class ActiveSupport::TestCase
 
   def reset_knock_configuration
     Knock.token_signature_algorithm = 'HS256'
-    Knock.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
+    if Rails.version >= "5.2"
+      Knock.token_secret_signature_key = -> { Rails.application.credentials.read }
+    else
+      Knock.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
+    end
     Knock.token_public_key = nil
     Knock.token_audience = nil
     Knock.token_lifetime = 1.day

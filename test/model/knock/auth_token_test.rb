@@ -119,5 +119,6 @@ module Knock
 
       assert_equal("{\"jwt\":\"#{@token}\"}", auth_token.to_json)
     end
-  end
+
+    test "is using credentials.yml.enc when rails version is above 5.2"
 end

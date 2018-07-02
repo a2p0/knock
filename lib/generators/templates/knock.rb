@@ -36,6 +36,9 @@ Knock.setup do |config|
   ## Configure the key used to sign tokens.
   ##
   ## Default:
+  # Since rails 5.2
+  # config.token_secret_signature_key = -> { Rails.application.credentials.read }
+  # Before rails 5.2
   # config.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
 
   ## If using Auth0, uncomment the line below

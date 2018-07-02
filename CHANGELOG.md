@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.2] - 2018-02-25
+### Changed
+- Allow use of rails versions above 5.2, which have deprecated `secrets.yml` in favor of `credentials.yml.enc`
+
 ## [2.1.1] - 2017-02-11
 ### Fixed
 - Stop trying to retrieve user from empty payload when no token is given
